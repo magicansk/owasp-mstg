@@ -261,11 +261,10 @@ do {
 
 - Handle the error as an optional value:
 
-```
+```swift
 	let x = try? functionThatThrows()
 	//In this case the value of x is nil in case of an error.
-
-```
+```  
 - Assert that the error will not occur: by using the `try!` expression.
 
 #### Static Analysis
@@ -366,7 +365,7 @@ Below are examples on how to check for these features. Please note that all of t
 
 -   PIE:
 
-```
+```shell
 $ unzip DamnVulnerableiOSApp.ipa
 $ cd Payload/DamnVulnerableIOSApp.app
 $ otool -hv DamnVulnerableIOSApp
@@ -384,7 +383,7 @@ WEAK_DEFINES BINDS_TO_WEAK PIE
 
 -   Stack Canary:
 
-```
+```shell
 $ otool -Iv DamnVulnerableIOSApp | grep stack
 0x0046040c 83177 ___stack_chk_fail
 0x0046100c 83521 _sigaltstack
@@ -400,7 +399,7 @@ $ otool -Iv DamnVulnerableIOSApp | grep stack
 
 -   Automatic Reference Counting:
 
-```
+```shell
 $ otool -Iv DamnVulnerableIOSApp | grep release
 0x0045b7dc 83156 ___cxa_guard_release
 0x0045fd5c 83414 _objc_autorelease
